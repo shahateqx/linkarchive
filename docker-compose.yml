@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: linkarchive-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: linkarchive
+      POSTGRES_USER: linkarchive
+      POSTGRES_PASSWORD: linkarchive_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
